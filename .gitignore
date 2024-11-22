@@ -1,8 +1,70 @@
+# Dependencies
+node_modules
+.pnp
+.pnp.js
+
+# Testing
+coverage
+/frontend/playwright-report
+/frontend/test-results
+
+# Production
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/launch.json
+!.vscode/tailwindcss.json
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Environment
 # 確保敏感資訊不會被提交到版本控制
 .env
 .env.*
 !.env.example
 
+# Docker
 # 忽略 Docker 產生的臨時文件
 .docker/*
 !.docker/.gitkeep
+
+# Operating System
+.DS_Store
+Thumbs.db
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Vite
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+
+# SCSS
+.sass-cache/
+*.css.map
+*.sass.map
+*.scss.map
+
+# Tailwind
+.tailwind/
