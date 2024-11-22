@@ -1,0 +1,8 @@
+# 確保敏感資訊不會被提交到版本控制
+.env
+.env.*
+!.env.example
+
+# 忽略 Docker 產生的臨時文件
+.docker/*
+!.docker/.gitkeep

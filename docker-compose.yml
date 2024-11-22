@@ -1,0 +1,63 @@
+# 指定 docker-compose 文件版本
+version: '3.8'
+
+services:
+  # 定義前端服務
+  frontend:
+    # 建構配置
+    build:
+      # 指定建構上下文（整個專案目錄）
+      context: .
+      # 指定使用的 Dockerfile 路徑
+      dockerfile: docker/frontend/Dockerfile
+    # 容器名稱，方便識別和管理
+    container_name: snow-sports-frontend
+    # 端口映射：主機端口:容器端口
+    ports:
+      - "3000:3000"
+    # 掛載卷：
+    # - 將本地前端代碼目錄掛載到容器中，這樣修改代碼後不需要重建容器
+    # - node_modules 使用容器內的版本，避免與本地環境衝突
+    volumes:
+      - ./frontend:/app/frontend
+      - /app/frontend/node_modules
+    # 環境變數設置
+    environment:
+      - NODE_ENV=development
+      - VITE_HOST=0.0.0.0
+    # 從 .env 文件加載環境變數
+    env_file:
+      - .env
+    # 健康檢查：確保服務正常運行
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "http://localhost:3000"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # 定義資料庫服務
+  db:
+    # 使用官方 MySQL 8.0 映像
+    image: mysql:8.0
+    container_name: snow-sports-db
+    ports:
+      - "3306:3306"
+    # 資料庫環境變數，從 .env 文件讀取
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+    # 資料庫數據持久化
+    volumes:
+      - mysql_data:/var/lib/mysql
+    # 資料庫健康檢查
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+# 定義命名卷，用於持久化存儲資料
+volumes:
+  mysql_data:
