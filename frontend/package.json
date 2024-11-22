@@ -13,6 +13,7 @@
     "format": "prettier --write src/",
     "docker:build": "cd .. && docker-compose build",
     "docker:up": "cd .. && docker-compose up",
+    "docker:up:d": "cd .. && docker-compose up -d",
     "docker:down": "cd .. && docker-compose down",
     "docker:logs": "cd .. && docker-compose logs -f"
   },

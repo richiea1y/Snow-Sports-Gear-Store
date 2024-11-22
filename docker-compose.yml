@@ -1,5 +1,5 @@
-# 指定 docker-compose 文件版本
-version: '3.8'
+# 最新版的 Docker Compose 不再需要指定 docker-compose 文件版本
+# version: '3.8'
 
 services:
   # 定義前端服務
@@ -18,6 +18,7 @@ services:
     # 掛載卷：
     # - 將本地前端代碼目錄掛載到容器中，這樣修改代碼後不需要重建容器
     # - node_modules 使用容器內的版本，避免與本地環境衝突
+    command: npm run dev -- --host  # 添加這行命令
     volumes:
       - ./frontend:/app/frontend
       - /app/frontend/node_modules

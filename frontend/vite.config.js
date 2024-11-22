@@ -94,7 +94,9 @@ export default defineConfig(({ mode }) => {
       }
     },
     server: {
+      host: '0.0.0.0',  // 允許外部訪問
       port: 3000,
+      strictPort: true, // 如果端口被占用，不要嘗試其他端口
       proxy: {
         '/api': {
           target: env.VITE_BASE_API,
