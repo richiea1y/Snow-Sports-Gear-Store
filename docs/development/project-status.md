@@ -25,6 +25,20 @@ Repository: [Snow-Sports-Gear-Store](https://github.com/richiea1y/Snow-Sports-Ge
 
 - [x] 專案基礎環境建置
 - [x] Docker 容器化部署理解
+- [x] Docker volumes 管理
+  - Named volumes 設定與使用
+  - Volumes 清理與維護最佳實踐
+
+### 開發環境確認
+
+- Docker 容器狀態：
+  - Frontend container: Running (snow-sports-frontend)
+  - MySQL container: Running (snow-sports-db)
+- 前端服務端口: 3000
+- 資料庫端口: 3306
+- Docker volumes 配置：
+  - snow-sports-mysql-data: 資料庫持久化儲存
+  - snow-sports-node-modules: Node.js 依賴包儲存
 
 ### 當前學習重點
 
@@ -78,6 +92,8 @@ Repository: [Snow-Sports-Gear-Store](https://github.com/richiea1y/Snow-Sports-Ge
 ### 開發環境
 
 - Docker
+  - Named Volumes
+  - Container Management
 - Docker Compose
 
 ## 目錄結構
@@ -251,5 +267,8 @@ export default [
 ## 注意事項
 
 - 確保 Docker 環境正確配置
+  - 使用具名 volumes 確保數據持久化
+  - 定期檢查並清理未使用的 volumes
+  - 使用 docker-compose down 而非直接 kill 容器
 - 遵循 Vue 3 最佳實踐
 - 保持文檔及時更新
