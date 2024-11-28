@@ -7,9 +7,54 @@ Repository: [Snow-Sports-Gear-Store](https://github.com/richiea1y/Snow-Sports-Ge
 
 ## 當前進度
 
-1. 已完成基礎開發環境設置
-2. 已完成 Docker 容器化配置（前端 + MySQL）
-3. 已完成基本的 Vue 3 + Vite 設置
+- [x] Docker 開發環境搭建完成
+- [x] 基礎 Vue 3 專案結構建立
+- [x] 前端開發服務器運行正常 (http://localhost:3000)
+
+### 開發環境確認
+
+- Docker 容器狀態：
+  - Frontend container: Running
+  - MySQL container: Running
+- 前端服務端口: 3000
+- 資料庫端口: 3306
+
+## 學習進度追蹤
+
+### 已完成學習
+
+- [x] 專案基礎環境建置
+- [x] Docker 容器化部署理解
+
+### 當前學習重點
+
+- [ ] Vue 3 基礎概念學習
+  - [ ] 組件系統
+  - [ ] Composition API
+  - [ ] 模板語法
+  - [ ] 響應式系統
+
+### 開發進度追蹤
+
+#### 前端開發
+
+- [x] 基礎環境配置完成
+- [ ] ProductList 頁面開發 (進行中)
+  - [ ] 基礎頁面結構
+  - [ ] 產品卡片組件
+  - [ ] 資料渲染邏輯
+
+#### 待解決問題
+
+- Vue 3 組件開發流程理解
+- 前端架構設計最佳實踐
+- 組件之間的通信方式選擇
+
+## 本週目標
+
+1. 完成 Vue 3 基礎概念學習
+2. 實現產品列表頁面的基礎功能
+3. 理解並實踐 Vue 3 組件開發模式
 
 ## 技術堆疊
 
