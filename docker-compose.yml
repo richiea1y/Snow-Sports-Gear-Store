@@ -20,8 +20,9 @@ services:
     # - node_modules 使用容器內的版本，避免與本地環境衝突
     command: npm run dev -- --host  # 添加這行命令
     volumes:
+      # 改用 Named Volumes，方便識別和管理
       - ./frontend:/app/frontend
-      - /app/frontend/node_modules
+      - snow-sports-node-modules:/app/frontend/node_modules
     # 環境變數設置
     environment:
       - NODE_ENV=development
@@ -51,7 +52,7 @@ services:
       - MYSQL_PASSWORD=${MYSQL_PASSWORD}
     # 資料庫數據持久化
     volumes:
-      - mysql_data:/var/lib/mysql
+      - snow-sports-mysql-data:/var/lib/mysql
     # 資料庫健康檢查
     healthcheck:
       test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
@@ -59,6 +60,15 @@ services:
       timeout: 10s
       retries: 3
 
-# 定義命名卷，用於持久化存儲資料
+# 定義 Named Volumes，用於持久化存儲資料
+# 使用具名卷的好處：
+# 1. 更容易識別卷的用途
+# 2. 方便在不同環境中遷移
+# 3. 便於管理和清理
 volumes:
-  mysql_data:
+  # 短名稱：用於在 services 中引用
+  snow-sports-mysql-data:
+    # 完整名稱：實際在 Docker 中的名稱
+    name: snow-sports-mysql-data
+  snow-sports-node-modules:
+    name: snow-sports-node-modules
