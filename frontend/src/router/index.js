@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -7,15 +6,15 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeView,
+      redirect: '/products'  // 將根路徑重定向到產品列表
     },
     {
-      path: '/about',
-      name: 'about',
+      path: '/products',
+      name: 'products',
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/ProductList.vue'),
+      component: () => import('../views/ProductList.vue'),   // 使用懶加載
     },
   ],
 })

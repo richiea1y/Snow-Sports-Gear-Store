@@ -10,6 +10,8 @@ Repository: [Snow-Sports-Gear-Store](https://github.com/richiea1y/Snow-Sports-Ge
 - [x] Docker 開發環境搭建完成
 - [x] 基礎 Vue 3 專案結構建立
 - [x] 前端開發服務器運行正常 (http://localhost:3000)
+- [x] SCSS 全局配置完成
+- [x] 路由基礎配置完成
 
 ### 開發環境確認
 
@@ -43,17 +45,22 @@ Repository: [Snow-Sports-Gear-Store](https://github.com/richiea1y/Snow-Sports-Ge
 ### 當前學習重點
 
 - [ ] Vue 3 基礎概念學習
-  - [ ] 組件系統
-  - [ ] Composition API
-  - [ ] 模板語法
-  - [ ] 響應式系統
+- [x] 基礎環境配置
+- [x] 路由配置
+- [ ] 組件系統
+- [ ] Composition API
+- [ ] 模板語法
+- [ ] 響應式系統
 
 ### 開發進度追蹤
 
 #### 前端開發
 
 - [x] 基礎環境配置完成
+- [x] 路由配置優化完成
 - [ ] ProductList 頁面開發 (進行中)
+  - [x] 基礎頁面結構
+  - [x] HTML 語義化改造
   - [ ] 基礎頁面結構
   - [ ] 產品卡片組件
   - [ ] 資料渲染邏輯
@@ -101,6 +108,23 @@ Repository: [Snow-Sports-Gear-Store](https://github.com/richiea1y/Snow-Sports-Ge
 ```bash
 Snow-Sports-Gear-Store/
 ├── frontend/          # Vue 3 前端專案
+│   ├── src/
+│   │   ├── styles/
+│   │   │   ├── abstracts/
+│   │   │   │   ├── _variables.scss
+│   │   │   │   ├── _functions.scss
+│   │   │   │   └── _mixins.scss
+│   │   │   ├── base/
+│   │   │   │   ├── _reset.scss
+│   │   │   │   └── _typography.scss
+│   │   │   ├── components/
+│   │   │   │   └── _buttons.scss
+│   │   │   └── layouts/
+│   │   │       └── _header.scss
+│   │   ├── views/
+│   │   │   └── ProductList.vue
+│   │   └── router/
+│   │       └── index.js
 ├── backend/           # Node.js 後端專案（待開發）
 ├── nginx/             # Nginx 配置（待開發）
 ├── docker/

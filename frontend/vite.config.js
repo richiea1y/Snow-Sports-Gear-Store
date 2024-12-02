@@ -143,6 +143,14 @@ export default defineConfig(({ mode }) => {
     },
     css: {
       devSourcemap: true,
+      preprocessorOptions: {
+        scss: {
+          additionalData: `
+            @import "@/styles/abstracts/_variables.scss";
+            @import "@/styles/abstracts/_mixins.scss";
+          `
+        }
+      }
     }
   };
 
